@@ -4,6 +4,7 @@ class Restaurant < ApplicationRecord
     @list = []
 
     def mypizzas
-        z = RestaurantPizza.where()
+        empty = []
+        empty << RestaurantPizza.where(restaurant_id: self.id)
     end
 end
