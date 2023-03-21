@@ -3,13 +3,13 @@ class RestaurantsController < ApplicationController
 
     # GET '/restaurants'
     def index
-        render json: Restaurant.all, only: [:name, :address]
+        render json: Restaurant.all, only: [:id, :name, :address]
     end
     
     # GET '/restaurants/:id'
     def show 
         restaurant = Restaurant.find(params[:id])
-        render json: restaurant, only: [:name, :address], include: ["pizzas"]
+        render json: restaurant, only: [:id, :name, :address], include: ["pizzas"]
     end
    
     def destroy
