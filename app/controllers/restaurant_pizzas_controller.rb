@@ -1,18 +1,12 @@
 class RestaurantPizzasController < ApplicationController
-    def index
-        render json: Restaurant.all
+    def create
+        restaurant_pizza = RestaurantPizza.create(myparams)
+        render json: restaurant_pizza, status: :created
     end
 
-    def show
-        
-    end
+    private
 
-    def destroy
-        restaurant = Restaurant.find(params[:id])
-        if restaurant
-            head :no_content
-        else
-            render json: {error: "Restauront does not exist"}, status: :not_found
-        end
+    def myparams
+        params.permit(:price, :restaurant_id, :pizza_id)
     end
 end
