@@ -1,5 +1,4 @@
 class RestaurantsController < ApplicationController
-    skip_before_action :verify_authenticity_token
 
     # GET '/restaurants'
     def index
